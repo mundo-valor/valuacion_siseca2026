@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Valuación Industrial - SISECA</title>
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #ecc94b;
+            --text-color: #333333;
+            --bg-color: #f7fafc;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header img {
+            max-height: 80px;
+            margin-bottom: 1rem;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        /* Grid para Honorarios e Informes */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Perfil Profesional */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+        }
+
+        .profile-info h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .logos-escuela {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            align-items: center;
+        }
+
+        .logos-escuela img {
+            max-height: 60px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            margin-top: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Botones de Descarga */
+        .btn-download {
+            display: block;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Lista de Recaudos */
+        .recaudos-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .recaudos-list li {
+            background: var(--bg-color);
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .recaudos-list li::before {
+            content: "📄";
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logos-escuela {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <img src="Logo-Web-Siseca.png" alt="Logotipo SISECA">
+            <h1>Entrega de Valuación de Activos Industriales</h1>
+            <p>Panel interactivo de resultados y documentación técnica</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- RESEÑA DE LA EMPRESA -->
+        <section>
+            <h2 class="section-title">Reseña de la Empresa Contratante</h2>
+            <div class="card">
+                <h3>Silos y Secado, C.A. (SISECA)</h3>
+                <p>Es una empresa del sector agroalimentario, fundada desde el 11 de septiembre de 1985[cite: 2]. Se dedica a la compraventa, proceso, molienda y manufactura de cereales como el Arroz, Avena, Maíz, Trigo y Cebada[cite: 2]. Estos rubros son la materia prima base para la producción de harinas crudas y precocidas, así como también para la elaboración de subproductos de alimentos balanceados para el consumo animal[cite: 2].</p>
+                <p>Hoy en día, la empresa cuenta con una capacidad instalada y operativa de 100 toneladas por día[cite: 2]. Todo esto es posible gracias a la colaboración directa e indirecta de aproximadamente 120 personas que integran su mayor capital humano[cite: 2].</p>
+            </div>
+        </section>
+
+        <!-- PROPUESTA DE HONORARIOS -->
+        <section>
+            <h2 class="section-title">Propuesta de Honorarios Profesionales</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3 style="color: var(--secondary-color);">Fase I</h3>
+                    <p><strong>Alcance:</strong> Valuación de Terrenos, Construcciones y Bienhechurías[cite: 1].</p>
+                    <p><strong>Honorarios:</strong> 1.750 dólares (pagados en bolívares a la Tasa del BCV al momento de facturar)[cite: 1].</p>
+                    <p><strong>Forma de pago:</strong> 50% de anticipo y 50% al entregar el trabajo[cite: 1].</p>
+                </div>
+                <div class="card">
+                    <h3 style="color: var(--secondary-color);">Fase II</h3>
+                    <p><strong>Alcance:</strong> Valuación de Maquinarias, Equipos y Sistemas[cite: 1].</p>
+                    <p><strong>Honorarios:</strong> 3.500,00 dólares (pagados en bolívares a la Tasa del BCV al momento de facturar)[cite: 1].</p>
+                    <p><strong>Forma de pago:</strong> 50% de anticipo y 50% al entregar el trabajo[cite: 1].</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROFESIONAL RESPONSABLE -->
+        <section>
+            <h2 class="section-title">El Profesional Responsable</h2>
+            <div class="card profile-section">
+                <img src="Informal 3.png" alt="Miguel Camacaro Pérez" class="profile-img">
+                <div class="profile-info">
+                    <h3>Miguel Camacaro Pérez, M.Sc.</h3>
+                    <p><strong>Ingeniero Civil - Especialista en Valuación de Activos</strong></p>
+                    <p>Profesional con más de 40 años de experiencia en la ingeniería y valuación de activos. M.Sc en Gerencia de la Construcción y profesor universitario en estadística y econometría. Promotor de la innovación digital en el sector mediante la aplicación de inteligencia artificial generativa y ciencia de datos para modelos econométricos.</p>
+                    
+                    <div class="logos-escuela">
+                        <img src="LOGO EVMC.jpg.png" alt="Escuela de Valuación Miguel Camacaro" title="Escuela de Valuación Miguel Camacaro">
+                        <img src="Mundovalor.png" alt="Mundo Valor" title="Canal Mundo Valor">
+                    </div>
+
+                    <div class="social-links">
+                        <a href="mailto:mundovalor@gmail.com" target="_blank">✉️ Contacto Gmail</a>
+                        <a href="https://www.linkedin.com/in/miguel-camacaro" target="_blank">🔗 Perfil en LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INFORMES DE AVALÚOS -->
+        <section>
+            <h2 class="section-title">Informes de Avalúos (Lectura)</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Fase I: Terrenos y Construcciones</h3>
+                    <p>Documento correspondiente al Informe de Certificación del Valor Inmobiliario[cite: 1].</p>
+                    <a href="29042024InmuebleSISECA.pdf" class="btn-download" target="_blank">📄 Abrir Informe (Fase I)</a>
+                </div>
+                <div class="card">
+                    <h3>Fase II: Máquinas, Equipos y Sistemas</h3>
+                    <p>Documento correspondiente al Informe de Certificación del Valor Industrial de maquinarias[cite: 1].</p>
+                    <a href="#" class="btn-download" target="_blank">📄 Abrir Informe (Fase II)</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECAUDOS ENTREGADOS -->
+        <section>
+            <h2 class="section-title">Anexos y Recaudos Entregados</h2>
+            <div class="card">
+                <ul class="recaudos-list">
+                    <li>29042024InmuebleSISECA.pdf</li>
+                    <li>Propuesta SISECA 2026.pdf</li>
+                    <li>Cálculos.pdf</li>
+                    <li>Construcciones.pdf</li>
+                    <li>Distribución de espacios.pdf</li>
+                    <li>Documentos legales.pdf</li>
+                    <li>Fichas.pdf</li>
+                    <li>Linderos cabidas.pdf</li>
+                    <li>Conformidad de Uso 2023.pdf</li>
+                    <li>PDUL - Ciudad Barquisimeto Planos.pdf</li>
+                    <li>Lista de equipos.pdf</li>
+                    <li>Flujograma H Arroz cruda.pdf</li>
+                    <li>Procedimientos de elaboracion.pdf</li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
