@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Valuación Industrial - SISECA</title>
+    <title>Entrega de Valuación - SISECA</title>
     <style>
         :root {
-            --primary-blue: #143b68; /* Azul corporativo oscuro */
-            --secondary-blue: #2563eb; /* Azul botones */
-            --gold: #d4af37; /* Dorado para líneas */
+            --primary-blue: #143b68; 
+            --secondary-blue: #2563eb; 
+            --gold: #d4af37; 
             --text-dark: #333333;
-            --bg-card: #ffffff;
+            --bg-card: rgba(255, 255, 255, 0.96); 
         }
 
         * {
@@ -20,13 +20,46 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Fondo general con la planta oscurecida */
+        /* Fondo general inmersivo */
         body {
             color: var(--text-dark);
             line-height: 1.6;
             background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('20240417_101437.jpg') no-repeat center center fixed;
             background-size: cover;
-            padding-top: 40px;
+        }
+
+        /* --- ENCABEZADO --- */
+        header {
+            background-color: var(--primary-blue);
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            margin-bottom: 60px;
+        }
+
+        .header-logo-box {
+            background-color: #e2e8f0;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .header-logo-box img {
+            max-height: 80px;
+            display: block;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
         }
 
         .container {
@@ -35,14 +68,14 @@
             padding: 0 20px 60px 20px;
         }
 
-        /* Estilo base de Tarjetas */
+        /* --- TARJETAS GLOBALES --- */
         .card {
             background-color: var(--bg-card);
             border-radius: 8px;
             padding: 40px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            margin-bottom: 40px;
-            position: relative;
+            margin-bottom: 60px;
+            position: relative; /* Clave para los logos solapados */
         }
 
         .section-title {
@@ -59,42 +92,44 @@
             margin-bottom: 25px;
         }
 
-        /* --- TARJETA DE EMPRESA --- */
-        .company-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-
-        .company-header h3 {
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            margin-top: 10px;
-        }
-
-        .logo-box {
+        /* --- SECCIÓN 1: EMPRESA --- */
+        .company-logo-box {
+            position: absolute;
+            top: -25px;
+            left: 30px;
             background-color: var(--primary-blue);
             padding: 10px 20px;
-            border-radius: 4px;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
-            float: right;
-            margin-left: 20px;
-            margin-bottom: 10px;
         }
 
-        .logo-box img {
-            max-width: 120px;
-            filter: brightness(0) invert(1); /* Pone el logo blanco si es necesario, o quita esta línea si tu logo ya tiene colores correctos */
+        .company-logo-box img {
+            height: 50px;
+            filter: brightness(0) invert(1); /* Pone el logo blanco. Si el logo ya es legible en fondo oscuro, borra esta línea */
         }
 
-        /* --- TARJETA PROFESIONAL --- */
+        .company-content {
+            padding-top: 35px; /* Empuja el texto debajo del logo solapado */
+        }
+
+        /* --- SECCIÓN 2: PROFESIONAL --- */
+        .evmc-logo {
+            position: absolute;
+            top: -45px;
+            right: 30px;
+            height: 100px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+            z-index: 10;
+        }
+
         .prof-container {
             display: flex;
             align-items: flex-start;
             gap: 40px;
+            padding-top: 10px;
         }
 
         .prof-left {
@@ -124,7 +159,6 @@
 
         .prof-right {
             flex-grow: 1;
-            padding-top: 10px;
         }
 
         .prof-right h4 {
@@ -147,7 +181,7 @@
         }
 
         .btn-action {
-            background-color: #2563eb;
+            background-color: var(--secondary-blue);
             color: white;
             text-decoration: none;
             padding: 10px 20px;
@@ -166,7 +200,7 @@
             background-color: var(--primary-blue);
         }
 
-        /* --- INFORMES Y ANEXOS --- */
+        /* --- SECCIÓN 3: INFORMES Y ANEXOS --- */
         .reports-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -185,7 +219,7 @@
             margin-bottom: 10px;
         }
 
-        /* Desplegable de Anexos */
+        /* Desplegables de Anexos */
         details {
             margin-top: 20px;
             background: white;
@@ -202,7 +236,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #f1f5f9;
+            background: #e2e8f0;
         }
 
         summary::-webkit-details-marker { display: none; }
@@ -235,36 +269,23 @@
             gap: 8px;
         }
 
-        .annex-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-sm {
+        .annex-item button {
             padding: 6px 12px;
             font-size: 0.85rem;
             border-radius: 4px;
-            text-decoration: none;
-            cursor: pointer;
-            font-weight: bold;
-            border: none;
-            transition: all 0.2s;
-        }
-
-        .btn-view {
             background-color: #e0f2fe;
             color: #0369a1;
             border: 1px solid #bae6fd;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
         }
-        .btn-view:hover { background-color: #bae6fd; }
 
-        .btn-download {
-            background-color: var(--primary-blue);
-            color: white;
+        .annex-item button:hover {
+            background-color: #bae6fd;
         }
-        .btn-download:hover { background-color: #0f2d50; }
 
-        /* --- MODAL VISOR DE PDF --- */
+        /* --- VISOR PDF MODAL --- */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -304,52 +325,63 @@
             width: 100%;
             height: 100%;
             border: none;
+            background: white; /* Por si el PDF tarda en cargar */
         }
 
-        /* Responsive */
+        /* Responsividad */
         @media (max-width: 768px) {
             .prof-container {
                 flex-direction: column;
+                align-items: center;
             }
             .prof-left {
                 width: 100%;
             }
-            .logo-box {
-                float: none;
-                margin: 0 auto 20px auto;
+            .evmc-logo {
+                top: 10px;
+                right: 10px;
+                height: 70px;
             }
             .reports-grid {
                 grid-template-columns: 1fr;
-            }
-            .annex-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="header-logo-box">
+            <img src="Mundovalor_3.png" alt="Mundo Valor">
+        </div>
+        <h1>Entrega de Valuación de Activos Industriales</h1>
+        <p>Panel interactivo de resultados y documentación técnica</p>
+    </header>
+
     <div class="container">
         
-        <!-- SECCIÓN 1: RESEÑA DE LA EMPRESA -->
+        <!-- SECCIÓN 1: EMPRESA -->
         <div class="card">
-            <h2 class="section-title">Reseña de la Empresa Contratante</h2>
-            <hr class="gold-line">
-            
-            <div class="logo-box">
+            <div class="company-logo-box">
                 <img src="Logo-Web-Siseca_2.png" alt="SISECA Logo">
             </div>
             
-            <h3>Silos y Secado, C.A. (SISECA)</h3>
-            <p style="margin-top: 15px;">Es una empresa del sector agroalimentario, fundada desde el 11 de septiembre de 1985[cite: 2]. Se dedica a la compraventa, proceso, molienda y manufactura de cereales como el Arroz, Avena, Maíz, Trigo y Cebada[cite: 2]. Estos rubros son la materia prima base para la producción de harinas crudas y precocidas, así como también para la elaboración de subproductos de alimentos balanceados para el consumo animal[cite: 2].</p>
-            <p style="margin-top: 15px;">Hoy en día, la empresa cuenta con una capacidad instalada y operativa de 100 toneladas por día[cite: 2]. Todo esto es posible gracias a la colaboración directa e indirecta de aproximadamente 120 personas que integran su mayor capital humano[cite: 2].</p>
-            <div style="clear: both;"></div> <!-- Limpia el float del logo -->
+            <div class="company-content">
+                <h2 class="section-title">Reseña de la Empresa Contratante</h2>
+                <hr class="gold-line">
+                
+                <h3 style="margin-bottom: 15px;">Silos y Secado, C.A. (SISECA)</h3>
+                <p style="margin-bottom: 15px;">Es una empresa del sector agroalimentario, fundada el 11 de septiembre de 1985. Se dedica a la compraventa, proceso, molienda y manufactura de cereales como el Arroz, Avena, Maíz, Trigo y Cebada. Estos rubros son la materia prima base para la producción de harinas crudas y precocidas, así como también para la elaboración de subproductos de alimentos balanceados para el consumo animal.</p>
+                <p>Hoy en día, la empresa cuenta con una capacidad instalada y operativa de 100 toneladas por día. Todo esto es posible gracias a la colaboración directa e indirecta de aproximadamente 120 personas que integran su mayor capital humano. Los activos están ubicados en la Zona Industrial y de Servicios III, Carrera 2-A, Barquisimeto, Estado Lara.</p>
+            </div>
         </div>
 
-        <!-- SECCIÓN 2: EL PROFESIONAL RESPONSABLE -->
+        <!-- SECCIÓN 2: PROFESIONAL -->
         <div class="card">
+            <!-- Logo flotante esquina superior derecha -->
+            <img src="LOGO EVMC.jpg_2.png" alt="Escuela de Valuación" class="evmc-logo">
+
             <h2 class="section-title">El Profesional Responsable</h2>
             <hr class="gold-line">
             
@@ -360,7 +392,7 @@
                 </div>
                 <div class="prof-right">
                     <h4>Ingeniero Civil - Especialista en Valuación de Activos</h4>
-                    <p class="prof-desc">Profesional con más de 40 años de experiencia en la ingeniería y valuación de activos. M.Sc en Gerencia de la Construcción y profesor universitario en estadística y econometría[cite: 2]. Promotor de la innovación digital en el sector mediante la aplicación de inteligencia artificial generativa y ciencia de datos para modelos econométricos.</p>
+                    <p class="prof-desc">Profesional con más de 40 años de experiencia en la ingeniería y valuación de activos. M.Sc en Gerencia de la Construcción y profesor universitario en estadística y econometría. Promotor de la innovación digital en el sector mediante la aplicación de inteligencia artificial generativa y ciencia de datos para modelos econométricos.</p>
                     
                     <div class="prof-actions">
                         <a href="mailto:mundovalor@gmail.com" class="btn-action">✉ Contacto Gmail</a>
@@ -370,57 +402,46 @@
             </div>
         </div>
 
-        <!-- SECCIÓN 3: EXPEDIENTE DE VALUACIÓN (INFORMES Y ANEXOS) -->
+        <!-- SECCIÓN 3: INFORMES Y ANEXOS -->
         <div class="card">
-            <h2 class="section-title">Expediente de Valuación</h2>
+            <h2 class="section-title">Informes de Avalúos (Lectura y Descarga)</h2>
             <hr class="gold-line">
             
             <div class="reports-grid">
                 <!-- Fase I -->
                 <div class="report-box">
                     <h3>Fase I: Terrenos y Construcciones</h3>
-                    <p>Informe de certificación del valor inmobiliario y estudio de mercado.</p>
-                    <br>
-                    <button class="btn-action" style="width: 100%; justify-content: center;" onclick="openViewer('29042024InmuebleSISECA.pdf')">📄 Ver Informe Principal</button>
+                    <p style="margin-bottom: 20px;">Documento correspondiente al Informe de Certificación del Valor Inmobiliario.</p>
+                    
+                    <button class="btn-action" style="width: 100%; justify-content: center;" onclick="openViewer('informe_construccion.pdf', 'Fase I: Terrenos y Construcciones')">📄 Abrir Informe (Fase I)</button>
                     
                     <!-- Desplegable Anexos Fase 1 -->
                     <details>
-                        <summary>Lista de Anexos (Fase I)</summary>
+                        <summary>Anexos Fase I</summary>
                         <ul class="annex-list">
                             <li class="annex-item">
-                                <span class="annex-title">📐 Planos y Distribución</span>
-                                <div class="annex-buttons">
-                                    <button class="btn-sm btn-view" onclick="openViewer('Distribución de espacios.pdf')">Ver</button>
-                                    <a href="Distribución de espacios.pdf" class="btn-sm btn-download" download>Descargar</a>
-                                </div>
+                                <span class="annex-title">📄 Anexo 1</span>
+                                <button onclick="openViewer('anexo1.pdf', 'Anexo 1 - Fase I')">Ver y Descargar</button>
                             </li>
                             <li class="annex-item">
-                                <span class="annex-title">🏗️ Construcciones</span>
-                                <div class="annex-buttons">
-                                    <button class="btn-sm btn-view" onclick="openViewer('Construcciones.pdf')">Ver</button>
-                                    <a href="Construcciones.pdf" class="btn-sm btn-download" download>Descargar</a>
-                                </div>
+                                <span class="annex-title">📄 Anexo 2</span>
+                                <button onclick="openViewer('anexo2.pdf', 'Anexo 2 - Fase I')">Ver y Descargar</button>
                             </li>
                             <li class="annex-item">
-                                <span class="annex-title">🧮 Cálculo de la Valuación</span>
-                                <div class="annex-buttons">
-                                    <button class="btn-sm btn-view" onclick="openViewer('Cálculos.pdf')">Ver</button>
-                                    <a href="Cálculos.pdf" class="btn-sm btn-download" download>Descargar</a>
-                                </div>
+                                <span class="annex-title">📄 Anexo 3</span>
+                                <button onclick="openViewer('anexo3.pdf', 'Anexo 3 - Fase I')">Ver y Descargar</button>
                             </li>
                             <li class="annex-item">
-                                <span class="annex-title">🏛️ Documentos Municipales</span>
-                                <div class="annex-buttons">
-                                    <button class="btn-sm btn-view" onclick="openViewer('Conformidad de Uso 2023 (2)[1].pdf')">Ver</button>
-                                    <a href="Conformidad de Uso 2023 (2)[1].pdf" class="btn-sm btn-download" download>Descargar</a>
-                                </div>
+                                <span class="annex-title">📄 Anexo 4</span>
+                                <button onclick="openViewer('anexo4.pdf', 'Anexo 4 - Fase I')">Ver y Descargar</button>
                             </li>
                             <li class="annex-item">
-                                <span class="annex-title">⚖️ Documentos Legales</span>
-                                <div class="annex-buttons">
-                                    <button class="btn-sm btn-view" onclick="openViewer('Documentos legales.pdf')">Ver</button>
-                                    <a href="Documentos legales.pdf" class="btn-sm btn-download" download>Descargar</a>
-                                </div>
+                                <span class="annex-title">📄 Anexo 5</span>
+                                <button onclick="openViewer('anexo5.pdf', 'Anexo 5 - Fase I')">Ver y Descargar</button>
+                            </li>
+                            <li class="annex-item">
+                                <span class="annex-title">📄 Anexo 6</span>
+                                <button onclick="openViewer('anexo6.pdf', 'Anexo 6 - Fase I')">Ver y Descargar</button>
                             </li>
                         </ul>
                     </details>
@@ -428,35 +449,38 @@
 
                 <!-- Fase II -->
                 <div class="report-box">
-                    <h3>Fase II: Maquinarias y Equipos</h3>
-                    <p>Informe de certificación del valor industrial de maquinarias y sistemas.</p>
-                    <br>
-                    <button class="btn-action" style="width: 100%; justify-content: center;" onclick="openViewer('#')">📄 Ver Informe Principal</button>
+                    <h3>Fase II: Máquinas, Equipos y Sistemas</h3>
+                    <p style="margin-bottom: 20px;">Documento correspondiente al Informe de Certificación del Valor Industrial de maquinarias.</p>
+                    
+                    <button class="btn-action" style="width: 100%; justify-content: center;" onclick="openViewer('informe_maquinas.pdf', 'Fase II: Máquinas y Equipos')">📄 Abrir Informe (Fase II)</button>
                     
                     <!-- Desplegable Anexos Fase 2 -->
                     <details>
-                        <summary>Lista de Anexos (Fase II)</summary>
+                        <summary>Anexos Fase II</summary>
                         <ul class="annex-list">
                             <li class="annex-item">
-                                <span class="annex-title">⚙️ Lista de Equipos</span>
-                                <div class="annex-buttons">
-                                    <button class="btn-sm btn-view" onclick="openViewer('Lista de equipos.pdf')">Ver</button>
-                                    <a href="Lista de equipos.pdf" class="btn-sm btn-download" download>Descargar</a>
-                                </div>
+                                <span class="annex-title">📄 Anexo 1</span>
+                                <button onclick="openViewer('anexo1_f2.pdf', 'Anexo 1 - Fase II')">Ver y Descargar</button>
                             </li>
                             <li class="annex-item">
-                                <span class="annex-title">🔄 Flujogramas</span>
-                                <div class="annex-buttons">
-                                    <button class="btn-sm btn-view" onclick="openViewer('flujograma H Arroz cruda.pdf')">Ver</button>
-                                    <a href="flujograma H Arroz cruda.pdf" class="btn-sm btn-download" download>Descargar</a>
-                                </div>
+                                <span class="annex-title">📄 Anexo 2</span>
+                                <button onclick="openViewer('anexo2_f2.pdf', 'Anexo 2 - Fase II')">Ver y Descargar</button>
                             </li>
                             <li class="annex-item">
-                                <span class="annex-title">📝 Procedimientos</span>
-                                <div class="annex-buttons">
-                                    <button class="btn-sm btn-view" onclick="openViewer('procedimientos de elaboracion de produ....pdf')">Ver</button>
-                                    <a href="procedimientos de elaboracion de produ....pdf" class="btn-sm btn-download" download>Descargar</a>
-                                </div>
+                                <span class="annex-title">📄 Anexo 3</span>
+                                <button onclick="openViewer('anexo3_f2.pdf', 'Anexo 3 - Fase II')">Ver y Descargar</button>
+                            </li>
+                            <li class="annex-item">
+                                <span class="annex-title">📄 Anexo 4</span>
+                                <button onclick="openViewer('anexo4_f2.pdf', 'Anexo 4 - Fase II')">Ver y Descargar</button>
+                            </li>
+                            <li class="annex-item">
+                                <span class="annex-title">📄 Anexo 5</span>
+                                <button onclick="openViewer('anexo5_f2.pdf', 'Anexo 5 - Fase II')">Ver y Descargar</button>
+                            </li>
+                            <li class="annex-item">
+                                <span class="annex-title">📄 Anexo 6</span>
+                                <button onclick="openViewer('anexo6_f2.pdf', 'Anexo 6 - Fase II')">Ver y Descargar</button>
                             </li>
                         </ul>
                     </details>
@@ -467,31 +491,31 @@
 
     </div>
 
-    <!-- Visor PDF Modal (Pantalla Completa) -->
+    <!-- Visor PDF Modal -->
     <div class="modal-overlay" id="viewer-modal">
         <div class="modal-header">
             <h3 id="modal-title">Visor de Documento</h3>
             <button class="btn-close" onclick="closeViewer()">X Cerrar</button>
         </div>
         <div class="modal-body">
+            <!-- El iframe cargará los PDF con su visor nativo, permitiendo imprimir y descargar -->
             <iframe class="pdf-frame" id="pdf-iframe" src=""></iframe>
         </div>
     </div>
 
     <script>
-        // Función para abrir el modal interactivo y cargar el PDF
-        function openViewer(pdfUrl) {
-            // Añadimos el modo de vista y evitamos el panel lateral en navegadores si es posible
-            document.getElementById('pdf-iframe').src = pdfUrl + '#toolbar=0&navpanes=0';
+        function openViewer(pdfUrl, title) {
+            document.getElementById('modal-title').innerText = title;
+            // Al no colocar restricciones (#toolbar=0) el navegador activará sus opciones de impresión y descarga
+            document.getElementById('pdf-iframe').src = pdfUrl; 
             document.getElementById('viewer-modal').style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
+            document.body.style.overflow = 'hidden'; 
         }
 
-        // Función para cerrar el modal
         function closeViewer() {
             document.getElementById('viewer-modal').style.display = 'none';
             document.getElementById('pdf-iframe').src = '';
-            document.body.style.overflow = 'auto'; // Restaurar scroll
+            document.body.style.overflow = 'auto'; 
         }
     </script>
 </body>
