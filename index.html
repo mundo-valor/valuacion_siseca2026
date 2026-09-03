@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informe de Valuación de Unidad Industrial </title>
+    <title>Informe de Valuación de Unidad Industrial</title>
     <style>
         :root {
             --primary-blue: #143b68; 
@@ -75,7 +75,7 @@
             padding: 40px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             margin-bottom: 60px;
-            position: relative; /* Clave para los logos solapados */
+            position: relative; 
         }
 
         .section-title {
@@ -108,11 +108,11 @@
 
         .company-logo-box img {
             height: 50px;
-            filter: brightness(0) invert(1); /* Pone el logo blanco. Si el logo ya es legible en fondo oscuro, borra esta línea */
+            filter: brightness(0) invert(1); 
         }
 
         .company-content {
-            padding-top: 35px; /* Empuja el texto debajo del logo solapado */
+            padding-top: 35px; 
         }
 
         /* --- SECCIÓN 2: PROFESIONAL --- */
@@ -151,12 +151,12 @@
         }
 
         .prof-name {
-    color: var(--text-dark); /* Cambia al color oscuro */
-    font-size: 1.2rem;
-    text-align: center;
-    font-weight: 400; /* Quita la negrita */
-    margin-top: 5px;
-}
+            color: var(--text-dark); 
+            font-size: 1.2rem;
+            text-align: center;
+            font-weight: 400; 
+            margin-top: 5px;
+        }
 
         .prof-right {
             flex-grow: 1;
@@ -326,7 +326,7 @@
             width: 100%;
             height: 100%;
             border: none;
-            background: white; /* Por si el PDF tarda en cargar */
+            background: white; 
         }
 
         /* Responsividad */
@@ -357,7 +357,7 @@
             <img src="Mundovalor.png" alt="Mundo Valor">
         </div>
         <h1>Informe de Valuación de Activos Industriales</h1>
-        </header>
+    </header>
 
     <div class="container">
         
@@ -392,14 +392,17 @@
                 </div>
                 <div class="prof-right">
                     <h4>Ingeniero Civil - Especialista en Valuación de Activos</h4>
-                    <p class="prof-desc">Ingeniero Civil por la Universidad de Los Andes (Venezuela), especialización en Valuación Inmobiliaria, Máster en Ciencias en Gerencia de la Construcción. Profesional con más de 40 años de experiencia en valuación de activos. Referencia internacional en la integración de Ciencia de la Valuación, Ciencia de Datos e Inteligencia Artificial Generativa. .</p>
+                    <p class="prof-desc">Ingeniero Civil por la Universidad de Los Andes (Venezuela), especialización en Valuación Inmobiliaria, Máster en Ciencias en Gerencia de la Construcción. Profesional con más de 40 años de experiencia en valuación de activos. Referencia internacional en la integración de Ciencia de la Valuación, Ciencia de Datos e Inteligencia Artificial Generativa.</p>
                     
                     <div class="prof-actions">
-                         <a href="mailto:mundovalor@gmail.com" class="btn-action">✉ Contacto Gmail</a>
+                        <!-- Enlace directo a la web de Gmail -->
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mundovalor@gmail.com" class="btn-action" target="_blank">✉ Contacto Gmail</a>
+                        <!-- Enlace a LinkedIn -->
                         <a href="https://www.linkedin.com/in/miguel-alberto-camacaro-p%C3%A9rez-4634b2118" class="btn-action" target="_blank">🔗 Perfil en LinkedIn</a>
-                   </div>
-            </div>
-        </div>
+                    </div>
+                </div>
+            </div> <!-- Aquí faltaba este cierre -->
+        </div> <!-- Y aquí faltaba este cierre -->
 
         <!-- SECCIÓN 3: INFORMES Y ANEXOS -->
         <div class="card">
@@ -435,7 +438,7 @@
                                 <button onclick="openViewer('Calculos.pdf', 'Cálculos - Fase I')">Ver y Descargar</button>
                             </li>
                             <li class="annex-item">
-                                <span class="annex-title">📄 Documentos Munici[pales</span>
+                                <span class="annex-title">📄 Documentos Municipales</span>
                                 <button onclick="openViewer('Municipales.pdf', 'Documentos Municipales - Fase I')">Ver y Descargar</button>
                             </li>
                             <li class="annex-item">
@@ -458,7 +461,7 @@
                         <summary>Anexos Fase II</summary>
                         <ul class="annex-list">
                             <li class="annex-item">
-                                <span class="annex-title">📄 Fichas ténicas</span>
+                                <span class="annex-title">📄 Fichas técnicas</span>
                                 <button onclick="openViewer('fichas.pdf', 'Anexo 1 - Fase II')">Ver y Descargar</button>
                             </li>
                             <li class="annex-item">
@@ -497,7 +500,6 @@
     <script>
         function openViewer(pdfUrl, title) {
             document.getElementById('modal-title').innerText = title;
-            // Al no colocar restricciones (#toolbar=0) el navegador activará sus opciones de impresión y descarga
             document.getElementById('pdf-iframe').src = pdfUrl; 
             document.getElementById('viewer-modal').style.display = 'flex';
             document.body.style.overflow = 'hidden'; 
